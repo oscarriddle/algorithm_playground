@@ -16,15 +16,15 @@ class Solution(object):
             
             
     def findKth(self,A,B,k):
-        if len(A)>len(B):
+        if len(A)>len(B): # Keep the first arg is always smaller than the second arg
             A,B=B,A
-        if not A:
+        if not A: # if A is empty, then only B counts, so return the value B[k]
             return B[k]
-        if k==len(A)+len(B)-1:
-            return max(A[-1],B[-1])
-        i=len(A)//2
-        j=k-i
-        if A[i]>B[j]:
+        if k==len(A)+len(B)-1:  # if k actually equals to the sum up length of A B, return which one is the max one
+            return max(A[-1],B[-1]) 
+        i=len(A)//2  # index pointer i equal to the cut half of A
+        j=k-i  # j pointer is the num of rest of k-i
+        if A[i]>B[j]: 
             #Here I assume it is O(1) to get A[:i] and B[j:]. In python, it's not but in cpp it is.
             return self.findKth(A[:i],B[j:],i)
         else:
