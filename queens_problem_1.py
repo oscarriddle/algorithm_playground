@@ -1,6 +1,10 @@
 
 import random
-
+'''
+This method implements generator in Python, which is basiclly iterator, but return value with some operation.
+The conflict method will calculates that the existed state and next one can not be in the same row/column nor same diagnol
+The queens generator will traverse all possible solutions. Recursive and backtrack/situation record is realized by the "yield"
+'''
 
 def conflict(state, nextX):
   nextY=len(state)
