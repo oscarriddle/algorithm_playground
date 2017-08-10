@@ -8,6 +8,8 @@
 //The input is ring linked node, Output the lucky guy
 //Count the ring link, delete the node ever when counting number equals m.
 
+//Assume the node number is n, so every delete a node need to repeat m times, so the upper asymptoticall bound is O(n*m)
+
 public class Node {
     public int value;
     public Node next;
