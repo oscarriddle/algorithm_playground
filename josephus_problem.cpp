@@ -5,6 +5,7 @@
 //Josephus states that by luck or possibly by the hand of God, he and another man remained until the end and surrendered to the Romans rather than killing themselves.
 
 //This problem can be demonstrated by ring-type linked nodes structure. 
+//The input is ring linked node, Output the lucky guy
 //Count the ring link, delete the node ever when counting number equals m.
 
 public class Node {
@@ -16,22 +17,22 @@ public class Node {
   }
 
 Public Node josephusKill(Node head, int m){
-    if (head == null || head.next == head || m<1) {
+    if (head == null || head.next == head || m<1) { // If head is exactly the last one, or head is been deleted, return it
         return head;
     } 
-  Node last = head;
-  while (last.next != head){
+  Node last = head; 
+  while (last.next != head){ // if head.next != head, (loop back) Keep moving forward
     last = last.next;
   }
   int count = 0;
-  while (head != last) {
-    if (++count == m){
-      last.next = head.next;
-      count=0;
+  while (head != last) { // After moved, if head.next!=head
+    if (++count == m){ //Count ++ and if count == m
+      last.next = head.next; // connect head.next to last.next
+      count=0; // reset counting
     } else {
-      last = last.next;
+      last = last.next; // if count ++ and count != m, move forward
     }
-    head = last.next;
+    head = last.next; // after moved, if head.next != head, assign last.next to head
   } 
   return head;
 } 
